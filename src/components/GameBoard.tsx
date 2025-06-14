@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../stores/gameStore';
 import Card from './Card';
@@ -20,6 +20,7 @@ const GameBoard: React.FC = () => {
     cardIndex: number;
     cards: any[];
   } | null>(null);
+  const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [dropZone, setDropZone] = useState<number | null>(null);
 
@@ -27,39 +28,13 @@ const GameBoard: React.FC = () => {
     soundManager.setEnabled(soundEnabled);
   }, [soundEnabled]);
 
-  const handleMouseDown = (e: React.MouseEvent, columnIndex: number, cardIndex: number) => {
-    const column = cards[columnIndex];
-    const card = column[cardIndex];
-    
-    if (!card.faceUp) return;
-    
-    // Check if we can drag this sequence
-    const cardsToMove = column.slice(cardIndex);
-    const isValidSequence = cardsToMove.every((c, i) => {
-      if (i === 0) return true;
-      const prevCard = cardsToMove[i - 1];
-      return c.suit === prevCard.suit && c.rank === prevCard.rank - 1;
-    });
-    
-    if (!isValidSequence) return;
-
-    const rect = e.currentTarget.getBoundingClientRect();
-    setDragOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
-    
-    setDraggedCard({
-      columnIndex,
-      cardIndex,
-      cards: cardsToMove
-    });
-    
-    soundManager.playCardMove();
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!draggedCard) return;
+    
+    setDragPosition({
+      x: e.clientX - dragOffset.x,
+      y: e.clientY - dragOffset.y
+    });
     
     // Find drop zone
     const elements = document.elementsFromPoint(e.clientX, e.clientY);
@@ -71,9 +46,9 @@ const GameBoard: React.FC = () => {
     } else {
       setDropZone(null);
     }
-  };
+  }, [draggedCard, dragOffset]);
 
-  const handleMouseUp = (e: React.MouseEvent) => {
+  const handleMouseUp = useCallback((e: MouseEvent) => {
     if (!draggedCard) return;
     
     if (dropZone !== null && dropZone !== draggedCard.columnIndex) {
@@ -91,6 +66,53 @@ const GameBoard: React.FC = () => {
     
     setDraggedCard(null);
     setDropZone(null);
+    setDragPosition({ x: 0, y: 0 });
+  }, [draggedCard, dropZone, cards, moveCards, checkForCompletedSequences]);
+
+  useEffect(() => {
+    if (draggedCard) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [draggedCard, handleMouseMove, handleMouseUp]);
+
+  const handleMouseDown = (e: React.MouseEvent, columnIndex: number, cardIndex: number) => {
+    e.preventDefault();
+    
+    const column = cards[columnIndex];
+    const card = column[cardIndex];
+    
+    if (!card.faceUp) return;
+    
+    // Check if we can drag this sequence
+    const cardsToMove = column.slice(cardIndex);
+    const isValidSequence = cardsToMove.every((c, i) => {
+      if (i === 0) return true;
+      const prevCard = cardsToMove[i - 1];
+      return c.suit === prevCard.suit && c.rank === prevCard.rank - 1;
+    });
+    
+    if (!isValidSequence) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    
+    setDragOffset({ x: offsetX, y: offsetY });
+    setDragPosition({ x: e.clientX - offsetX, y: e.clientY - offsetY });
+    
+    setDraggedCard({
+      columnIndex,
+      cardIndex,
+      cards: cardsToMove
+    });
+    
+    soundManager.playCardMove();
   };
 
   const handleDealCards = () => {
@@ -100,19 +122,8 @@ const GameBoard: React.FC = () => {
     }
   };
 
-  const getCardPosition = (columnIndex: number, cardIndex: number) => {
-    return {
-      x: columnIndex * 80 + 20,
-      y: cardIndex * 20 + 120
-    };
-  };
-
   return (
-    <div 
-      className="relative w-full h-full bg-gradient-to-br from-green-800 to-green-900 overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-    >
+    <div className="relative w-full h-full bg-gradient-to-br from-green-800 to-green-900 overflow-hidden">
       {/* Stock pile */}
       <div className="absolute top-4 left-4">
         <div 
@@ -157,6 +168,8 @@ const GameBoard: React.FC = () => {
                   draggedCard.columnIndex === columnIndex && 
                   cardIndex >= draggedCard.cardIndex;
                 
+                if (isDragged) return null; // Don't render dragged cards in their original position
+                
                 return (
                   <motion.div
                     key={card.id}
@@ -171,7 +184,7 @@ const GameBoard: React.FC = () => {
                   >
                     <Card
                       card={card}
-                      isDragging={isDragged}
+                      isDragging={false}
                       onClick={() => {
                         if (card.faceUp && !draggedCard) {
                           // Auto-move logic could go here
@@ -182,7 +195,7 @@ const GameBoard: React.FC = () => {
                       }}
                     />
                     
-                    {/* Invisible drag handle */}
+                    {/* Drag handle */}
                     {card.faceUp && (
                       <div
                         className="absolute inset-0 cursor-grab active:cursor-grabbing"
@@ -199,14 +212,20 @@ const GameBoard: React.FC = () => {
 
       {/* Dragged cards */}
       {draggedCard && (
-        <div className="fixed pointer-events-none z-50">
+        <div 
+          className="fixed pointer-events-none z-50"
+          style={{
+            left: dragPosition.x,
+            top: dragPosition.y
+          }}
+        >
           {draggedCard.cards.map((card, index) => (
             <motion.div
               key={card.id}
               className="absolute"
               style={{
-                top: `calc(var(--mouse-y, 0px) + ${index * 20 - dragOffset.y}px)`,
-                left: `calc(var(--mouse-x, 0px) - ${dragOffset.x}px)`,
+                top: index * 20,
+                left: 0
               }}
               initial={{ scale: 1.1, rotate: 5 }}
               animate={{ scale: 1.1, rotate: 5 }}
