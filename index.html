@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>elegant-spider-web-game</title>
-    <meta name="description" content="Lovable Generated Project" />
+    <title>Spider Solitaire - Play Free Online</title>
+    <meta name="description" content="Play Spider Solitaire online for free! Multiple difficulty levels, smooth animations, and mobile-friendly gameplay." />
     <meta name="author" content="Lovable" />
 
-    <meta property="og:title" content="elegant-spider-web-game" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="Spider Solitaire - Play Free Online" />
+    <meta property="og:description" content="Play Spider Solitaire online for free! Multiple difficulty levels, smooth animations, and mobile-friendly gameplay." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
@@ -20,5 +21,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Mouse tracking for drag and drop
+      document.addEventListener('mousemove', (e) => {
+        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      });
+    </script>
   </body>
 </html>
