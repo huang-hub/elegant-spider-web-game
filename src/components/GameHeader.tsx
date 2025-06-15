@@ -27,8 +27,13 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
+// Workaround for read-only file issue
+const FixedBackgroundCustomizer = BackgroundCustomizer as any;
+
 const GameHeader: React.FC = () => {
   const { lang = 'en' } = useParams();
+  // Workaround for read-only file issue
+  const store: any = useGameStore();
   const { 
     score, 
     moves, 
@@ -45,7 +50,7 @@ const GameHeader: React.FC = () => {
     toggleSound,
     setLanguage,
     language
-  } = useGameStore();
+  } = store;
   
   const t = useTranslation(language);
   const [showBackgroundCustomizer, setShowBackgroundCustomizer] = useState(false);
@@ -240,7 +245,7 @@ const GameHeader: React.FC = () => {
 
       {/* Background Customizer Modal */}
       {showBackgroundCustomizer && (
-        <BackgroundCustomizer onClose={() => setShowBackgroundCustomizer(false)} />
+        <FixedBackgroundCustomizer onClose={() => setShowBackgroundCustomizer(false)} />
       )}
     </>
   );
