@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { useGameStore } from '../stores/gameStore';
 import { useTimer } from '../hooks/useTimer';
 import { useTranslation } from '../utils/translations';
+import { useParams } from 'react-router-dom';
 import DifficultySelector from '../components/DifficultySelector';
 import GameHeader from '../components/GameHeader';
 import GameBoard from '../components/GameBoard';
@@ -9,19 +11,28 @@ import VictoryModal from '../components/VictoryModal';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Index = () => {
+  const { lang = 'en' } = useParams();
   const { 
     isGameStarted, 
     isGameComplete, 
     language, 
     cards,
     loadGameState,
-    backgroundSettings 
+    backgroundSettings,
+    setLanguage
   } = useGameStore();
   
   const t = useTranslation(language);
   const [showContinuePrompt, setShowContinuePrompt] = useState(false);
 
   useTimer();
+
+  // Set language from URL parameter
+  useEffect(() => {
+    if (lang && lang !== language) {
+      setLanguage(lang);
+    }
+  }, [lang, language, setLanguage]);
 
   useEffect(() => {
     // Check if there's a saved game
@@ -105,7 +116,55 @@ const Index = () => {
   }
 
   if (!isGameStarted) {
-    return <DifficultySelector />;
+    return (
+      <div className="min-h-screen" style={getBackgroundStyle()}>
+        <DifficultySelector />
+        
+        {/* SEO Content Section */}
+        <div className="container mx-auto px-4 py-12 bg-white/90 backdrop-blur rounded-lg shadow-lg mt-8 mb-8">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
+              {t('seoTitle')}
+            </h1>
+            
+            <div className="prose max-w-none text-gray-700">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                {t('seoH2Title')}
+              </h2>
+              
+              <p className="mb-6 text-lg leading-relaxed">
+                {t('seoIntro')}
+              </p>
+              
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                {t('seoH3Features')}
+              </h3>
+              
+              <p className="mb-4">
+                {t('seoFeatures')}
+              </p>
+              
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                {t('seoH3WhyPlay')}
+              </h3>
+              
+              <p className="mb-4">
+                {t('seoWhyPlay')}
+              </p>
+              
+              <div className="bg-green-50 p-6 rounded-lg mt-8">
+                <h3 className="text-xl font-semibold mb-3 text-green-800">
+                  {t('seoH3GetStarted')}
+                </h3>
+                <p className="text-green-700">
+                  {t('seoGetStarted')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (

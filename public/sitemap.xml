@@ -1,0 +1,198 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Main Pages - English -->
+  <url>
+    <loc>https://anysolitaire.com/en</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://anysolitaire.com/es"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://anysolitaire.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://anysolitaire.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://anysolitaire.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anysolitaire.com/en"/>
+  </url>
+  
+  <!-- Main Pages - Spanish -->
+  <url>
+    <loc>https://anysolitaire.com/es</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://anysolitaire.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://anysolitaire.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://anysolitaire.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://anysolitaire.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anysolitaire.com/en"/>
+  </url>
+  
+  <!-- Main Pages - Chinese -->
+  <url>
+    <loc>https://anysolitaire.com/zh</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://anysolitaire.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://anysolitaire.com/es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://anysolitaire.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://anysolitaire.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anysolitaire.com/en"/>
+  </url>
+  
+  <!-- Main Pages - French -->
+  <url>
+    <loc>https://anysolitaire.com/fr</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://anysolitaire.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://anysolitaire.com/es"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://anysolitaire.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://anysolitaire.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anysolitaire.com/en"/>
+  </url>
+  
+  <!-- Main Pages - Russian -->
+  <url>
+    <loc>https://anysolitaire.com/ru</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://anysolitaire.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://anysolitaire.com/es"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://anysolitaire.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://anysolitaire.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anysolitaire.com/en"/>
+  </url>
+
+  <!-- How to Play Pages -->
+  <url>
+    <loc>https://anysolitaire.com/en/how-to-play</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/es/how-to-play</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/zh/how-to-play</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/fr/how-to-play</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/ru/how-to-play</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Pages -->
+  <url>
+    <loc>https://anysolitaire.com/en/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/es/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/zh/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/fr/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/ru/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Background Tutorial Pages -->
+  <url>
+    <loc>https://anysolitaire.com/en/background-tutorial</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/es/background-tutorial</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/zh/background-tutorial</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/fr/background-tutorial</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/ru/background-tutorial</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy Pages -->
+  <url>
+    <loc>https://anysolitaire.com/en/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/es/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/zh/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/fr/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anysolitaire.com/ru/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

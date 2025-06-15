@@ -81,7 +81,17 @@ export const translations = {
     solidSteps: '1. Click the customize background button\n2. Select a color from the solid colors section\n3. Enjoy your new solid background',
     imageTutorial: 'Use your own custom image as the game background.',
     imageSteps: '1. Find an image URL online\n2. Copy the image URL\n3. Paste it in the image URL field\n4. Click "Apply Image"',
-    imageRequirements: 'Note: The image should be publicly accessible and in a common format (JPG, PNG, etc.)'
+    imageRequirements: 'Note: The image should be publicly accessible and in a common format (JPG, PNG, etc.)',
+    // SEO Content
+    seoTitle: 'Free Spider Solitaire Online - Play Now at AnySolitaire.com',
+    seoH2Title: 'Play Free Spider Solitaire Online - Classic Card Game',
+    seoIntro: 'Experience the ultimate free spider solitaire online game at AnySolitaire.com. Our free spider solitaire online platform offers the classic card game you love with smooth gameplay, multiple difficulty levels, and customizable backgrounds. Play free spider solitaire online anytime, anywhere with no downloads required.',
+    seoH3Features: 'Premium Features of Our Free Spider Solitaire Online Game',
+    seoFeatures: 'Our free spider solitaire online game includes three difficulty modes, unlimited undo/redo options, and auto-save functionality. The free spider solitaire online experience is enhanced with beautiful themes, responsive design for all devices, and multi-language support making it the best free spider solitaire online destination.',
+    seoH3WhyPlay: 'Why Choose Our Free Spider Solitaire Online Platform?',
+    seoWhyPlay: 'AnySolitaire.com provides the most comprehensive free spider solitaire online experience. Our free spider solitaire online game features no ads interruption, fast loading times, and seamless gameplay. Join millions who enjoy our free spider solitaire online and discover why we are the preferred choice.',
+    seoH3GetStarted: 'Start Playing Free Spider Solitaire Online Today',
+    seoGetStarted: 'Ready to play free spider solitaire online? Simply select your difficulty level and begin your free spider solitaire online adventure. No registration required for our free spider solitaire online game - just pure entertainment at your fingertips.'
   },
   es: {
     title: 'Solitario Araña',
@@ -126,7 +136,7 @@ export const translations = {
     contactText: 'Si tienes alguna pregunta sobre esta política de privacidad, contáctanos a través de nuestro sitio web.',
     aboutTeam: 'Sobre Nuestro Equipo',
     teamDescription: 'Somos desarrolladores apasionados dedicados a crear la mejor experiencia de solitario.',
-    ourMission: 'nuestra Misión',
+    ourMission: 'Nuestra Misión',
     missionText: 'Proporcionar un juego de Solitario Araña gratuito, accesible y divertido para jugadores de todo el mundo.',
     gameFeatures: 'Características del Juego',
     feature1: 'Múltiples niveles de dificultad',
@@ -165,7 +175,17 @@ export const translations = {
     solidSteps: '1. Haz clic en el botón personalizar fondo\n2. Selecciona un color de la sección de colores sólidos\n3. Disfruta tu nuevo fondo sólido',
     imageTutorial: 'Usa tu propia imagen personalizada como fondo del juego.',
     imageSteps: '1. Encuentra una URL de imagen en línea\n2. Copia la URL de la imagen\n3. Pégala en el campo URL de imagen\n4. Haz clic en "Aplicar Imagen"',
-    imageRequirements: 'Nota: La imagen debe ser accesible públicamente y en un formato común (JPG, PNG, etc.)'
+    imageRequirements: 'Nota: La imagen debe ser accesible públicamente y en un formato común (JPG, PNG, etc.)',
+    // SEO Content in Spanish
+    seoTitle: 'Solitario Araña Gratis Online - Juega Ahora en AnySolitaire.com',
+    seoH2Title: 'Juega Solitario Araña Gratis Online - Juego de Cartas Clásico',
+    seoIntro: 'Experimenta el mejor solitario araña gratis online en AnySolitaire.com. Nuestra plataforma de solitario araña gratis online ofrece el juego de cartas clásico que amas con jugabilidad fluida, múltiples niveles de dificultad y fondos personalizables. Juega solitario araña gratis online en cualquier momento y lugar sin descargas requeridas.',
+    seoH3Features: 'Características Premium de Nuestro Solitario Araña Gratis Online',
+    seoFeatures: 'Nuestro solitario araña gratis online incluye tres modos de dificultad, opciones ilimitadas de deshacer/rehacer y funcionalidad de guardado automático. La experiencia de solitario araña gratis online se mejora con temas hermosos, diseño responsivo para todos los dispositivos y soporte multiidioma.',
+    seoH3WhyPlay: '¿Por Qué Elegir Nuestra Plataforma de Solitario Araña Gratis Online?',
+    seoWhyPlay: 'AnySolitaire.com proporciona la experiencia más completa de solitario araña gratis online. Nuestro solitario araña gratis online presenta sin interrupciones de anuncios, tiempos de carga rápidos y jugabilidad perfecta.',
+    seoH3GetStarted: 'Comienza a Jugar Solitario Araña Gratis Online Hoy',
+    seoGetStarted: '¿Listo para jugar solitario araña gratis online? Simplemente selecciona tu nivel de dificultad y comienza tu aventura de solitario araña gratis online. No se requiere registro para nuestro solitario araña gratis online.'
   },
   zh: {
     title: '蜘蛛纸牌',
@@ -249,7 +269,17 @@ export const translations = {
     solidSteps: '1. 点击自定义背景按钮\n2. 从纯色部分选择颜色\n3. 享受您的新纯色背景',
     imageTutorial: '使用您自己的自定义图片作为游戏背景。',
     imageSteps: '1. 在线找到图片URL\n2. 复制图片URL\n3. 将其粘贴到图片URL字段中\n4. 点击"应用图片"',
-    imageRequirements: '注意：图片应该是公开可访问的，并且是常见格式（JPG、PNG等）'
+    imageRequirements: '注意：图片应该是公开可访问的，并且是常见格式（JPG、PNG等）',
+    // SEO Content in Chinese
+    seoTitle: '免费在线蜘蛛纸牌 - 立即在AnySolitaire.com开始游戏',
+    seoH2Title: '玩免费在线蜘蛛纸牌 - 经典纸牌游戏',
+    seoIntro: '在AnySolitaire.com体验最佳的免费在线蜘蛛纸牌游戏。我们的免费在线蜘蛛纸牌平台提供您喜爱的经典纸牌游戏，具有流畅的游戏玩法、多个难度级别和可自定义背景。随时随地玩免费在线蜘蛛纸牌，无需下载。',
+    seoH3Features: '我们免费在线蜘蛛纸牌游戏的高级功能',
+    seoFeatures: '我们的免费在线蜘蛛纸牌游戏包括三种难度模式、无限撤销/重做选项和自动保存功能。免费在线蜘蛛纸牌体验通过美丽主题、适合所有设备的响应式设计和多语言支持得到增强。',
+    seoH3WhyPlay: '为什么选择我们的免费在线蜘蛛纸牌平台？',
+    seoWhyPlay: 'AnySolitaire.com提供最全面的免费在线蜘蛛纸牌体验。我们的免费在线蜘蛛纸牌游戏无广告干扰、快速加载时间和流畅的游戏玩法。',
+    seoH3GetStarted: '今天开始玩免费在线蜘蛛纸牌',
+    seoGetStarted: '准备玩免费在线蜘蛛纸牌了吗？只需选择您的难度级别并开始您的免费在线蜘蛛纸牌冒险。我们的免费在线蜘蛛纸牌游戏无需注册。'
   },
   fr: {
     title: 'Solitaire Spider',
@@ -333,7 +363,17 @@ export const translations = {
     solidSteps: '1. Cliquez sur le bouton personnaliser l\'arrière-plan\n2. Sélectionnez une couleur de la section couleurs unies\n3. Profitez de votre nouvel arrière-plan uni',
     imageTutorial: 'Utilisez votre propre image personnalisée comme arrière-plan du jeu.',
     imageSteps: '1. Trouvez une URL d\'image en ligne\n2. Copiez l\'URL de l\'image\n3. Collez-la dans le champ URL de l\'image\n4. Cliquez sur "Appliquer l\'Image"',
-    imageRequirements: 'Note: L\'image doit être accessible publiquement et dans un format commun (JPG, PNG, etc.)'
+    imageRequirements: 'Note: L\'image doit être accessible publiquement et dans un format commun (JPG, PNG, etc.)',
+    // SEO Content in French
+    seoTitle: 'Solitaire Spider Gratuit En Ligne - Jouez Maintenant sur AnySolitaire.com',
+    seoH2Title: 'Jouez au Solitaire Spider Gratuit En Ligne - Jeu de Cartes Classique',
+    seoIntro: 'Découvrez le meilleur solitaire spider gratuit en ligne sur AnySolitaire.com. Notre plateforme de solitaire spider gratuit en ligne offre le jeu de cartes classique que vous aimez avec un gameplay fluide, plusieurs niveaux de difficulté et des arrière-plans personnalisables. Jouez au solitaire spider gratuit en ligne à tout moment, partout sans téléchargement requis.',
+    seoH3Features: 'Fonctionnalités Premium de Notre Solitaire Spider Gratuit En Ligne',
+    seoFeatures: 'Notre solitaire spider gratuit en ligne comprend trois modes de difficulté, des options annuler/refaire illimitées et une fonctionnalité de sauvegarde automatique. L\'expérience solitaire spider gratuit en ligne est améliorée avec de beaux thèmes, un design réactif pour tous les appareils et un support multilingue.',
+    seoH3WhyPlay: 'Pourquoi Choisir Notre Plateforme Solitaire Spider Gratuit En Ligne?',
+    seoWhyPlay: 'AnySolitaire.com fournit l\'expérience la plus complète de solitaire spider gratuit en ligne. Notre solitaire spider gratuit en ligne présente aucune interruption publicitaire, des temps de chargement rapides et un gameplay parfait.',
+    seoH3GetStarted: 'Commencez à Jouer au Solitaire Spider Gratuit En Ligne Aujourd\'hui',
+    seoGetStarted: 'Prêt à jouer au solitaire spider gratuit en ligne? Sélectionnez simplement votre niveau de difficulté et commencez votre aventure solitaire spider gratuit en ligne. Aucune inscription requise pour notre solitaire spider gratuit en ligne.'
   },
   ru: {
     title: 'Паук Пасьянс',
@@ -417,7 +457,17 @@ export const translations = {
     solidSteps: '1. Нажмите кнопку настройки фона\n2. Выберите цвет из раздела сплошных цветов\n3. Наслаждайтесь новым сплошным фоном',
     imageTutorial: 'Используйте свое собственное изображение в качестве фона игры.',
     imageSteps: '1. Найдите URL изображения в интернете\n2. Скопируйте URL изображения\n3. Вставьте его в поле URL изображения\n4. Нажмите "Применить Изображение"',
-    imageRequirements: 'Примечание: Изображение должно быть общедоступным и в распространенном формате (JPG, PNG и т.д.)'
+    imageRequirements: 'Примечание: Изображение должно быть общедоступным и в распространенном формате (JPG, PNG и т.д.)',
+    // SEO Content in Russian
+    seoTitle: 'Бесплатный Паук Пасьянс Онлайн - Играйте Сейчас на AnySolitaire.com',
+    seoH2Title: 'Играйте в Бесплатный Паук Пасьянс Онлайн - Классическая Карточная Игра',
+    seoIntro: 'Испытайте лучший бесплатный паук пасьянс онлайн на AnySolitaire.com. Наша платформа бесплатного паука пасьянса онлайн предлагает классическую карточную игру, которую вы любите, с гладким геймплеем, несколькими уровнями сложности и настраиваемыми фонами. Играйте в бесплатный паук пасьянс онлайн в любое время, в любом месте без загрузок.',
+    seoH3Features: 'Премиум Функции Нашего Бесплатного Паука Пасьянса Онлайн',
+    seoFeatures: 'Наш бесплатный паук пасьянс онлайн включает три режима сложности, неограниченные опции отмены/повтора и функцию автосохранения. Опыт бесплатного паука пасьянса онлайн улучшен красивыми темами, адаптивным дизайном для всех устройств и поддержкой нескольких языков.',
+    seoH3WhyPlay: 'Почему Выбрать Нашу Платформу Бесплатного Паука Пасьянса Онлайн?',
+    seoWhyPlay: 'AnySolitaire.com предоставляет самый полный опыт бесплатного паука пасьянса онлайн. Наш бесплатный паук пасьянс онлайн не имеет прерываний рекламы, быстрое время загрузки и бесшовный геймплей.',
+    seoH3GetStarted: 'Начните Играть в Бесплатный Паук Пасьянс Онлайн Сегодня',
+    seoGetStarted: 'Готовы играть в бесплатный паук пасьянс онлайн? Просто выберите уровень сложности и начните приключение бесплатного паука пасьянса онлайн. Регистрация не требуется для нашего бесплатного паука пасьянса онлайн.'
   }
 };
 
