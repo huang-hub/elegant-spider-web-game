@@ -23,7 +23,8 @@ export const translations = {
     no: 'No',
     leaderboard: 'Leaderboard',
     noScores: 'No scores yet',
-    footer: '© 2025 solitaire game · Built with ❤️ for solitaire lovers'
+    footer: '© 2025 solitaire game · Built with ❤️ for solitaire lovers',
+    visitSite: 'Visit AnySolitaire.com'
   },
   es: {
     title: 'Solitario Araña',
@@ -48,7 +49,8 @@ export const translations = {
     no: 'No',
     leaderboard: 'Tabla de Puntuaciones',
     noScores: 'Aún no hay puntuaciones',
-    footer: '© 2025 juego de solitario · Hecho con ❤️ para los amantes del solitario'
+    footer: '© 2025 juego de solitario · Hecho con ❤️ para los amantes del solitario',
+    visitSite: 'Visitar AnySolitaire.com'
   },
   zh: {
     title: '蜘蛛纸牌',
@@ -73,7 +75,60 @@ export const translations = {
     no: '否',
     leaderboard: '排行榜',
     noScores: '暂无成绩',
-    footer: '© 2025 纸牌游戏 · 为纸牌爱好者精心制作 ❤️'
+    footer: '© 2025 纸牌游戏 · 为纸牌爱好者精心制作 ❤️',
+    visitSite: '访问 AnySolitaire.com'
+  },
+  fr: {
+    title: 'Solitaire Spider',
+    newGame: 'Nouveau Jeu',
+    deal: 'Distribuer',
+    undo: 'Annuler',
+    redo: 'Refaire',
+    score: 'Score',
+    time: 'Temps',
+    moves: 'Coups',
+    difficulty: 'Difficulté',
+    easy: 'Facile (1 Couleur)',
+    medium: 'Moyen (2 Couleurs)',
+    hard: 'Difficile (4 Couleurs)',
+    gameComplete: 'Félicitations !',
+    gameCompleteMessage: 'Vous avez terminé le jeu !',
+    playAgain: 'Rejouer',
+    sound: 'Son',
+    language: 'Langue',
+    continueGame: 'Continuer la dernière partie ?',
+    yes: 'Oui',
+    no: 'Non',
+    leaderboard: 'Classement',
+    noScores: 'Aucun score pour le moment',
+    footer: '© 2025 jeu de solitaire · Fait avec ❤️ pour les amateurs de solitaire',
+    visitSite: 'Visiter AnySolitaire.com'
+  },
+  ru: {
+    title: 'Паук Пасьянс',
+    newGame: 'Новая Игра',
+    deal: 'Раздать',
+    undo: 'Отменить',
+    redo: 'Повторить',
+    score: 'Счёт',
+    time: 'Время',
+    moves: 'Ходы',
+    difficulty: 'Сложность',
+    easy: 'Лёгкий (1 Масть)',
+    medium: 'Средний (2 Масти)',
+    hard: 'Сложный (4 Масти)',
+    gameComplete: 'Поздравляем!',
+    gameCompleteMessage: 'Вы завершили игру!',
+    playAgain: 'Играть Снова',
+    sound: 'Звук',
+    language: 'Язык',
+    continueGame: 'Продолжить последнюю игру?',
+    yes: 'Да',
+    no: 'Нет',
+    leaderboard: 'Таблица Лидеров',
+    noScores: 'Пока нет результатов',
+    footer: '© 2025 игра пасьянс · Создано с ❤️ для любителей пасьянса',
+    visitSite: 'Посетить AnySolitaire.com'
   }
 };
 

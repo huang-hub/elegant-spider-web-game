@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useGameStore } from '../stores/gameStore';
 import { useTranslation } from '../utils/translations';
-import { ArrowLeft, ArrowRight, Volume2, VolumeX } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Volume2, VolumeX, ExternalLink } from 'lucide-react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const GameHeader: React.FC = () => {
   const {
@@ -24,6 +25,8 @@ const GameHeader: React.FC = () => {
   } = useGameStore();
 
   const t = useTranslation(language);
+  const navigate = useNavigate();
+  const { lang } = useParams();
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const formatTime = (seconds: number) => {
@@ -35,8 +38,20 @@ const GameHeader: React.FC = () => {
   const languages = [
     { code: 'en', name: 'English' },
     { code: 'es', name: 'Español' },
-    { code: 'zh', name: '中文' }
+    { code: 'zh', name: '中文' },
+    { code: 'fr', name: 'Français' },
+    { code: 'ru', name: 'Русский' }
   ];
+
+  const handleLanguageChange = (langCode: string) => {
+    setLanguage(langCode);
+    navigate(`/${langCode}`, { replace: true });
+    setShowLanguageMenu(false);
+  };
+
+  const handleVisitSite = () => {
+    window.open('https://anysolitaire.com', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <motion.header 
@@ -52,6 +67,16 @@ const GameHeader: React.FC = () => {
           <div className="text-sm opacity-75">
             {t('difficulty')}: {difficulty === 1 ? t('easy') : difficulty === 2 ? t('medium') : t('hard')}
           </div>
+          
+          {/* AnySolitaire.com Link */}
+          <button
+            onClick={handleVisitSite}
+            className="flex items-center space-x-1 px-3 py-1 bg-blue-600 hover:bg-blue-500 rounded transition-colors text-sm"
+            title={t('visitSite')}
+          >
+            <span>{t('visitSite')}</span>
+            <ExternalLink size={14} />
+          </button>
         </div>
 
         {/* Game Stats */}
@@ -120,16 +145,13 @@ const GameHeader: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
               >
-                {languages.map(lang => (
+                {languages.map(langObj => (
                   <button
-                    key={lang.code}
-                    onClick={() => {
-                      setLanguage(lang.code);
-                      setShowLanguageMenu(false);
-                    }}
+                    key={langObj.code}
+                    onClick={() => handleLanguageChange(langObj.code)}
                     className="block w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors"
                   >
-                    {lang.name}
+                    {langObj.name}
                   </button>
                 ))}
               </motion.div>
