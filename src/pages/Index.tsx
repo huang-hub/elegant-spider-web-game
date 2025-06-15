@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useGameStore } from '../stores/gameStore';
 import { useTimer } from '../hooks/useTimer';
@@ -15,7 +14,8 @@ const Index = () => {
     isGameComplete, 
     language, 
     cards,
-    loadGameState 
+    loadGameState,
+    backgroundSettings 
   } = useGameStore();
   
   const t = useTranslation(language);
@@ -45,9 +45,35 @@ const Index = () => {
     setShowContinuePrompt(false);
   };
 
+  const getBackgroundStyle = () => {
+    switch (backgroundSettings.type) {
+      case 'gradient':
+        return {
+          background: `linear-gradient(to bottom right, ${backgroundSettings.gradientFrom}, ${backgroundSettings.gradientTo})`
+        };
+      case 'solid':
+        return {
+          backgroundColor: backgroundSettings.solidColor
+        };
+      case 'image':
+        return backgroundSettings.imageUrl ? {
+          backgroundImage: `url(${backgroundSettings.imageUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        } : {
+          background: `linear-gradient(to bottom right, ${backgroundSettings.gradientFrom}, ${backgroundSettings.gradientTo})`
+        };
+      default:
+        return {
+          background: `linear-gradient(to bottom right, ${backgroundSettings.gradientFrom}, ${backgroundSettings.gradientTo})`
+        };
+    }
+  };
+
   if (showContinuePrompt) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-800 to-green-900 flex items-center justify-center p-4">
+      <div className="min-h-screen flex items-center justify-center p-4" style={getBackgroundStyle()}>
         <motion.div
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center"
           initial={{ scale: 0.9, opacity: 0 }}
@@ -83,7 +109,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-800 to-green-900 flex flex-col">
+    <div className="min-h-screen flex flex-col" style={getBackgroundStyle()}>
       <GameHeader />
       
       <main className="flex-1 relative overflow-hidden">
@@ -93,7 +119,7 @@ const Index = () => {
       <VictoryModal />
       
       {/* Footer */}
-      <footer className="bg-green-900 text-white text-center py-4 text-sm">
+      <footer className="bg-black/20 backdrop-blur text-white text-center py-4 text-sm">
         {t('footer')}
       </footer>
     </div>

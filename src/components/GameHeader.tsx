@@ -1,33 +1,31 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useGameStore } from '../stores/gameStore';
 import { useTranslation } from '../utils/translations';
-import { ArrowLeft, ArrowRight, Volume2, VolumeX, ExternalLink } from 'lucide-react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Button } from './ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { Volume2, VolumeX, RotateCcw, RotateCw, Plus, Globe, ExternalLink, Menu } from 'lucide-react';
+import BackgroundCustomizer from './BackgroundCustomizer';
 
 const GameHeader: React.FC = () => {
   const {
     score,
-    time,
     moves,
+    time,
     soundEnabled,
     language,
-    difficulty,
-    stockPile,
+    toggleSound,
     undoMove,
     redoMove,
-    resetGame,
-    toggleSound,
-    setLanguage,
-    history,
-    historyIndex
+    initializeGame,
+    difficulty,
+    stockPile,
+    dealCards,
+    cards,
+    setLanguage
   } = useGameStore();
 
   const t = useTranslation(language);
-  const navigate = useNavigate();
-  const { lang } = useParams();
-  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -35,91 +33,100 @@ const GameHeader: React.FC = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Español' },
-    { code: 'zh', name: '中文' },
-    { code: 'fr', name: 'Français' },
-    { code: 'ru', name: 'Русский' }
-  ];
-
-  const handleLanguageChange = (langCode: string) => {
-    setLanguage(langCode);
-    navigate(`/${langCode}`, { replace: true });
-    setShowLanguageMenu(false);
-  };
-
-  const handleVisitSite = () => {
-    window.open('https://anysolitaire.com', '_blank', 'noopener,noreferrer');
-  };
-
   return (
-    <motion.header 
-      className="bg-gradient-to-r from-green-700 to-green-800 text-white p-4 shadow-lg"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
-        {/* Logo and Title */}
-        <div className="flex items-center space-x-4">
-          <h1 className="text-2xl font-bold">{t('title')}</h1>
-          <div className="text-sm opacity-75">
-            {t('difficulty')}: {difficulty === 1 ? t('easy') : difficulty === 2 ? t('medium') : t('hard')}
+    <header className="bg-black/20 backdrop-blur text-white p-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold">{t('title')}</h1>
+            <Button asChild variant="ghost" size="sm" className="text-white hover:text-green-200">
+              <a href="https://anysolitaire.com" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-1" />
+                {t('visitSite')}
+              </a>
+            </Button>
           </div>
           
-          {/* AnySolitaire.com Link */}
-          <button
-            onClick={handleVisitSite}
-            className="flex items-center space-x-1 px-3 py-1 bg-blue-600 hover:bg-blue-500 rounded transition-colors text-sm"
-            title={t('visitSite')}
-          >
-            <span>{t('visitSite')}</span>
-            <ExternalLink size={14} />
-          </button>
-        </div>
-
-        {/* Game Stats */}
-        <div className="flex items-center space-x-6">
-          <div className="text-center">
-            <div className="text-xs opacity-75">{t('score')}</div>
-            <div className="font-bold">{score}</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xs opacity-75">{t('time')}</div>
-            <div className="font-bold">{formatTime(time)}</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xs opacity-75">{t('moves')}</div>
-            <div className="font-bold">{moves}</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xs opacity-75">Cards Left</div>
-            <div className="font-bold">{stockPile.length}</div>
+          {/* Stats */}
+          <div className="flex items-center gap-4 text-sm bg-black/20 rounded-lg px-3 py-1">
+            <span>{t('score')}: {score}</span>
+            <span>{t('moves')}: {moves}</span>
+            <span>{t('time')}: {formatTime(time)}</span>
           </div>
         </div>
-
-        {/* Action Buttons */}
-        <div className="flex items-center space-x-2">
-          {/* Undo/Redo */}
-          <button
-            onClick={undoMove}
-            disabled={historyIndex <= 0}
-            className="p-2 rounded bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            title={t('undo')}
-          >
-            <ArrowLeft size={20} />
-          </button>
+        
+        {/* Controls */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <BackgroundCustomizer />
           
-          <button
-            onClick={redoMove}
-            disabled={historyIndex >= history.length - 1}
-            className="p-2 rounded bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            title={t('redo')}
-          >
-            <ArrowRight size={20} />
-          </button>
-
+          {/* Menu with links to other pages */}
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur">
+                <Menu className="w-4 h-4 mr-2" />
+                {t('menu')}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-56">
+              <div className="space-y-2">
+                <Button asChild variant="ghost" className="w-full justify-start">
+                  <Link to={`/${language}/how-to-play`}>
+                    {t('howToPlay')}
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" className="w-full justify-start">
+                  <Link to={`/${language}/background-tutorial`}>
+                    {t('backgroundTutorial')}
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" className="w-full justify-start">
+                  <Link to={`/${language}/about`}>
+                    {t('aboutTeam')}
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" className="w-full justify-start">
+                  <Link to={`/${language}/privacy`}>
+                    {t('privacyPolicy')}
+                  </Link>
+                </Button>
+              </div>
+            </PopoverContent>
+          </Popover>
+          
+          {/* Language Selector */}
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur">
+                <Globe className="w-4 h-4 mr-2" />
+                {language.toUpperCase()}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-40">
+              <div className="space-y-1">
+                {[
+                  { code: 'en', name: 'English' },
+                  { code: 'es', name: 'Español' },
+                  { code: 'zh', name: '中文' },
+                  { code: 'fr', name: 'Français' },
+                  { code: 'ru', name: 'Русский' }
+                ].map((lang) => (
+                  <Button
+                    key={lang.code}
+                    variant={language === lang.code ? "default" : "ghost"}
+                    size="sm"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      window.history.pushState({}, '', `/${lang.code}`);
+                    }}
+                  >
+                    {lang.name}
+                  </Button>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
+          
           {/* Sound Toggle */}
           <button
             onClick={toggleSound}
@@ -129,45 +136,16 @@ const GameHeader: React.FC = () => {
             {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
           </button>
 
-          {/* Language Selector */}
-          <div className="relative">
-            <button
-              onClick={() => setShowLanguageMenu(!showLanguageMenu)}
-              className="px-3 py-2 rounded bg-green-600 hover:bg-green-500 transition-colors text-sm"
-            >
-              {languages.find(l => l.code === language)?.code.toUpperCase() || 'EN'}
-            </button>
-            
-            {showLanguageMenu && (
-              <motion.div
-                className="absolute right-0 top-full mt-1 bg-white text-black rounded-lg shadow-lg overflow-hidden z-50"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-              >
-                {languages.map(langObj => (
-                  <button
-                    key={langObj.code}
-                    onClick={() => handleLanguageChange(langObj.code)}
-                    className="block w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors"
-                  >
-                    {langObj.name}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </div>
-
           {/* New Game */}
           <button
-            onClick={resetGame}
+            onClick={initializeGame}
             className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 transition-colors font-medium"
           >
             {t('newGame')}
           </button>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

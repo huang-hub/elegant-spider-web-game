@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -8,6 +7,14 @@ export interface Card {
   rank: number; // 1-13 (Ace to King)
   faceUp: boolean;
   stackIndex?: number;
+}
+
+export interface BackgroundSettings {
+  type: 'gradient' | 'solid' | 'image';
+  gradientFrom: string;
+  gradientTo: string;
+  solidColor: string;
+  imageUrl: string;
 }
 
 export interface GameState {
@@ -24,6 +31,7 @@ export interface GameState {
   language: string;
   history: Card[][][];
   historyIndex: number;
+  backgroundSettings: BackgroundSettings;
 }
 
 export interface GameActions {
@@ -40,6 +48,7 @@ export interface GameActions {
   checkForCompletedSequences: () => void;
   saveGameState: () => void;
   loadGameState: () => void;
+  updateBackgroundSettings: (settings: Partial<BackgroundSettings>) => void;
 }
 
 const createDeck = (difficulty: 1 | 2 | 4): Card[] => {
@@ -85,7 +94,14 @@ const initialState: GameState = {
   soundEnabled: true,
   language: 'en',
   history: [],
-  historyIndex: -1
+  historyIndex: -1,
+  backgroundSettings: {
+    type: 'gradient',
+    gradientFrom: '#166534',
+    gradientTo: '#14532d',
+    solidColor: '#166534',
+    imageUrl: ''
+  }
 };
 
 export const useGameStore = create<GameState & GameActions>()(
@@ -296,6 +312,12 @@ export const useGameStore = create<GameState & GameActions>()(
       
       loadGameState: () => {
         // Automatically handled by persist middleware
+      },
+      
+      updateBackgroundSettings: (settings) => {
+        set(state => ({
+          backgroundSettings: { ...state.backgroundSettings, ...settings }
+        }));
       }
     }),
     {
@@ -310,7 +332,8 @@ export const useGameStore = create<GameState & GameActions>()(
         isGameStarted: state.isGameStarted,
         difficulty: state.difficulty,
         soundEnabled: state.soundEnabled,
-        language: state.language
+        language: state.language,
+        backgroundSettings: state.backgroundSettings
       })
     }
   )

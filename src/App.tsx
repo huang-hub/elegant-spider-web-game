@@ -5,6 +5,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import Privacy from "./pages/Privacy";
+import About from "./pages/About";
+import HowToPlay from "./pages/HowToPlay";
+import BackgroundTutorial from "./pages/BackgroundTutorial";
 import NotFound from "./pages/NotFound";
 import { useGameStore } from "./stores/gameStore";
 import { useEffect } from "react";
@@ -38,6 +42,10 @@ const App = () => (
           
           {/* Language-specific routes */}
           <Route path="/:lang" element={<LanguageWrapper />} />
+          <Route path="/:lang/privacy" element={<Privacy />} />
+          <Route path="/:lang/about" element={<About />} />
+          <Route path="/:lang/how-to-play" element={<HowToPlay />} />
+          <Route path="/:lang/background-tutorial" element={<BackgroundTutorial />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
